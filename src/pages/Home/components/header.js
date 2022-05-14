@@ -5,7 +5,7 @@ function Header() {
         <header className='header'>
             <div className='toolbar'> 
                 <div>
-                    <span>Conecta Class</span>
+                    <span>Conecta Class Lock</span>
                 </div>
                 <div>
                     <button>Novo post</button>
