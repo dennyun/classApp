@@ -6,13 +6,14 @@ import { Grid, Avatar,Button, Typography, Link } from "@mui/material";
 import { Checkbox } from "@mui/material";
 import { FormControlLabel } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
+import { useState } from "react";
 import '../style.css'
 
 // Styles NavBar - Material ui
 const useStyles = makeStyles({
     paperStyle: {
         padding :20,
-        height:390,
+        height:'100%',
         width:390, 
         margin:"auto auto"
     },
@@ -21,28 +22,33 @@ const useStyles = makeStyles({
     },
     btnstyle: {
         margin:'8px 0'
+    },
+    grid:{
+        height: '15vh'
     }
-
 })
 
 function Form() {
     const classes = useStyles();
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return( 
         
         <Paper elevation={10} className={classes.paperStyle}>
-            <Grid align='center'>
+            <Grid className={classes.grid} align='center'>
                     <Avatar className='avatarStyle'><LockOutlined /></Avatar>
                 <h2>Entrar</h2>
             </Grid>
 
             <div className='wrap-input'>
-                <input className='input' type='email' />
+                <input className={email !== '' ? 'has-value input' : 'input'} type='email' value={email} onChange={e => setEmail(e.target.value)}/>
                 <span className='focus-input' data-placeholder='Email'> </span>
             </div>
 
             <div className='wrap-input'>
-                <input className='input' type='password' />
+                <input className={password !== '' ? 'has-value input' : 'input'} type='password' value={password} onChange={e => setPassword(e.target.value)}/>
                 <span className='focus-input' data-placeholder='Password' type='password' > </span>
             </div>
             
