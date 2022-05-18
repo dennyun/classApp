@@ -1,13 +1,14 @@
 // Imports
 import React from "react";
 import { makeStyles} from "@material-ui/styles";
-import { Paper } from "@mui/material";
+import { FormHelperText, Paper } from "@mui/material";
 import { Grid, Avatar,Button, Typography, Link } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import '../style.css'
 
 import { useNavigate } from "react-router-dom";
+import authService from "../../../services/authSevice";
 
 // Styles NavBar - Material ui
 const useStyles = makeStyles({
@@ -27,11 +28,19 @@ const useStyles = makeStyles({
 
 function Form() {
     const classes = useStyles();
-
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const navigate = useNavigate();
+    async function handleLogin(){
+        try {
+            await authService.login(email, password);
+            navigate('/');
+        } catch (error) {
+            setErrorMessage(error.response.data.message);
+        }
+    }
 
     return( 
         
@@ -53,8 +62,14 @@ function Form() {
                 </div>
             </Grid>
 
-            <Button type='submit' color='primary' variant="contained" className={classes.btnstyle} fullWidth onClick={() => navigate('/')}>Entrar</Button>
-
+            <Button type='submit' color='primary' variant="contained" className={classes.btnstyle} fullWidth onClick={handleLogin}>Entrar</Button>
+            
+            {
+                errorMessage &&
+                <FormHelperText error>
+                    {errorMessage}
+                </FormHelperText>
+            }
             
             <Typography sx={{marginBottom: '8px', marginTop: '8px'}}>
                 <Link>Esqueceu sua senha?</Link>
