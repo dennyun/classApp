@@ -94,3 +94,7 @@
 .has-value + .focus-input::before{
     width: 100%;
 }
+
+.text2{
+    margin-right: 8px !important;
+}
