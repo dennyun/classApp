@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './pages/Home';
+import { AppRouter } from './routes';
 
 function App() {
   return (
-    <Home></Home>
+      <AppRouter/>
   );
 }
 

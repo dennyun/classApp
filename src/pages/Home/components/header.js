@@ -8,10 +8,8 @@ import { Bell } from "react-feather";
 import { Avatar } from "@mui/material";
 
 //erro boxShadow
+//Styles Home
 const useStyles = makeStyles({
-    appBar:{
-        
-    },
     img: {
         maxHeight: 55
     },
@@ -31,27 +29,24 @@ const useStyles = makeStyles({
 function Header() {
     const classes = useStyles();
     return(
-        <AppBar position="fixed" color="inherit" className={classes.appBar}>
+        <AppBar position="fixed" color="inherit" className={classes.appBar} sx={{boxShadow: 'none'}}>
             <Toolbar>
                 <img src="/images/logo.png" alt="logo" className={classes.img}/>
+
                 <div className={classes.grow}></div>
+                
                 <div className={classes.userSection}>
+
                     <Button variant="contained" color="primary" >
                         Novo Post
                     </Button>
+                    
                     <SvgIcon className={classes.bell}>
                        <Bell></Bell> 
                     </SvgIcon>
                     <Avatar alt="Remy Sharp" src="" />
+
                 </div>
-                {/*<div>
-                    <span>Conecta Class Lock</span>
-                </div>
-                <div>
-                    <Button color="primary" variant="contained">Novo post</Button>
-                    <span>img1</span>
-                    <span>img2</span>
-                </div> */}
             </Toolbar>
         </AppBar>
     );
