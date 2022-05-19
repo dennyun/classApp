@@ -1,8 +1,8 @@
 // Imports
 import React from "react";
 import { makeStyles} from "@material-ui/styles";
-import { FormHelperText, Paper } from "@mui/material";
-import { Grid, Avatar,Button, Typography, Link } from "@mui/material";
+import { FormHelperText} from "@mui/material";
+import { Grid, Avatar, Link} from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import '../style.css'
@@ -12,15 +12,6 @@ import authService from "../../../services/authSevice";
 
 // Styles NavBar - Material ui
 const useStyles = makeStyles({
-    paperStyle: {
-        padding :20,
-        height:'100%',
-        width:390, 
-        margin:"auto auto"
-    },
-    btnstyle: {
-        margin:'8px 0'
-    },
     grid:{
         height: '15vh'
     }
@@ -44,10 +35,10 @@ function Form() {
 
     return( 
         
-        <Paper elevation={10} className={classes.paperStyle}>
+        <div elevation={10} className='paperStyle'>
             <Grid className={classes.grid} align='center'>
                 <Avatar className='avatarStyle'><LockOutlined /></Avatar>
-                <h2>Entrar</h2>
+                <h2 className="login-box">Entrar</h2>
             </Grid>
 
             <Grid>
@@ -62,7 +53,9 @@ function Form() {
                 </div>
             </Grid>
 
-            <Button type='submit' color='primary' variant="contained" className={classes.btnstyle} fullWidth onClick={handleLogin}>Entrar</Button>
+            <div className='container-btn'>
+                <button className='btn' onClick={handleLogin}> Entrar </button>
+            </div>
             
             {
                 errorMessage &&
@@ -71,16 +64,20 @@ function Form() {
                 </FormHelperText>
             }
             
-            <Typography sx={{marginBottom: '8px', marginTop: '8px'}}>
-                <Link>Esqueceu sua senha?</Link>
-            </Typography>
+            <div className="text">
+                <Link href="#" underline="none" variant="body1">
+                    {'Esqueceu sua senha?'}
+                </Link>
+            </div>
 
             
-            <Typography> Não tem uma conta?
-                <Link>Registre-se</Link>
-            </Typography>
-        
-        </Paper>
+            <div className="text2"> 
+               <span> Não tem uma conta?</span>
+               <Link href="#" underline="none" variant="body1" sx={{marginLeft: '8px'}}>
+                    {'Registra-se'}
+                </Link>
+            </div>
+        </div>
 
     )
 }
@@ -101,5 +98,7 @@ function Form() {
 /* inputs
     <TextField label='Username' placeholder='Enter username' fullWidth required className='textField'/>
     <TextField label='Password' placeholder='Enter password' type='password' fullWidth required className='textField'/>
+
+<Button type='submit' color='primary' variant="contained" className={classes.btnstyle} fullWidth onClick={handleLogin}>Entrar</Button>
 */
 export default Form;
