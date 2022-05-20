@@ -35,49 +35,51 @@ function Form() {
 
     return( 
         
-        <div elevation={10} className='paperStyle'>
-            <Grid className={classes.grid} align='center'>
-                <Avatar className='avatarStyle'><LockOutlined /></Avatar>
-                <h2 className="login-box">Entrar</h2>
-            </Grid>
+        <form>
+            <div className="paper">
+                <Grid className={classes.grid} align='center'>
+                    <Avatar className='avatarStyle'><LockOutlined /></Avatar>
+                    <h2 className="login-box">Entrar</h2>
+                </Grid>
 
-            <Grid>
-                <div className='wrap-input'>
-                    <input className={email !== '' ? 'has-value input' : 'input'} type='email' value={email} onChange={e => setEmail(e.target.value)}/>
-                    <span className='focus-input' data-placeholder='Email'> </span>
+                <Grid>
+                    <div className='wrap-input'>
+                        <input className={email !== '' ? 'has-value input' : 'input'} type='email' value={email} onChange={e => setEmail(e.target.value)}/>
+                        <span className='focus-input' data-placeholder='Email'> </span>
+                    </div>
+
+                    <div className='wrap-input'>
+                        <input className={password !== '' ? 'has-value input' : 'input'} type='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                        <span className='focus-input' data-placeholder='Password' type='password' > </span>
+                    </div>
+                </Grid>
+
+                <div className='container-btn'>
+                    <button className='btn' onClick={handleLogin}> Entrar </button>
+                </div>
+                
+                {
+                    errorMessage &&
+                    <FormHelperText error>
+                        {errorMessage}
+                    </FormHelperText>
+                }
+                
+                <div className="text">
+                    <Link href="#" underline="none" variant="body1">
+                        {'Esqueceu sua senha?'}
+                    </Link>
                 </div>
 
-                <div className='wrap-input'>
-                    <input className={password !== '' ? 'has-value input' : 'input'} type='password' value={password} onChange={e => setPassword(e.target.value)}/>
-                    <span className='focus-input' data-placeholder='Password' type='password' > </span>
+                
+                <div className="text2"> 
+                    <span> Não tem uma conta?</span>
+                    <Link href="#" underline="none" variant="body1" sx={{marginLeft: '8px'}}>
+                        {'Registra-se'}
+                    </Link>
                 </div>
-            </Grid>
-
-            <div className='container-btn'>
-                <button className='btn' onClick={handleLogin}> Entrar </button>
             </div>
-            
-            {
-                errorMessage &&
-                <FormHelperText error>
-                    {errorMessage}
-                </FormHelperText>
-            }
-            
-            <div className="text">
-                <Link href="#" underline="none" variant="body1">
-                    {'Esqueceu sua senha?'}
-                </Link>
-            </div>
-
-            
-            <div className="text2"> 
-               <span> Não tem uma conta?</span>
-               <Link href="#" underline="none" variant="body1" sx={{marginLeft: '8px'}}>
-                    {'Registra-se'}
-                </Link>
-            </div>
-        </div>
+        </form>
 
     )
 }

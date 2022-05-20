@@ -1,17 +1,12 @@
 import React from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
-import { Container } from "@mui/material";
 
 function Login() {
     return(
-        <div className='root-login'>
+        <div className='root'>
             <Header/>
-            <main className='main-login'>
-                <Container maxWidth='lg'>
-                    <Form/>
-                </Container>
-            </main>
+            <Form/>
         </div>
     )
 }
