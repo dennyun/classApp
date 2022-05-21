@@ -8,7 +8,9 @@ import { useState } from "react";
 import '../style.css'
 
 import { useNavigate } from "react-router-dom";
-import authService from "../../../services/authSevice";
+import {login} from "../../../actions/accountAction";
+
+import { useDispatch } from "react-redux";
 
 // Styles NavBar - Material ui
 const useStyles = makeStyles({
@@ -23,10 +25,11 @@ function Form() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const dispatch = useDispatch()
 
     async function handleLogin(){
         try {
-            await authService.login(email, password);
+            await dispatch(login(email, password));
             navigate('/');
         } catch (error) {
             setErrorMessage(error.response.data.message);

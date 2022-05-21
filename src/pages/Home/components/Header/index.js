@@ -1,11 +1,11 @@
 import React from "react";
-import { Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import { AppBar } from "@mui/material";
 import { Toolbar } from "@mui/material";
-import { SvgIcon } from "@mui/material";
-import { Bell } from "react-feather";
-import { Avatar } from "@mui/material";
+import Account from "./Account";
+import Notifications from "./Notifications";
+import WritePost from "./WritePost";
 
 //erro boxShadow
 //Styles Home
@@ -19,15 +19,12 @@ const useStyles = makeStyles({
     userSection: {
         display: 'flex',
         alignItems: 'center'
-    },
-    bell: {
-        marginRight: 10,
-        marginLeft: 10
     }
 });
 
 function Header() {
     const classes = useStyles();
+
     return(
         <AppBar position="fixed" color="inherit" className={classes.appBar} sx={{boxShadow: 'none'}}>
             <Toolbar>
@@ -36,16 +33,15 @@ function Header() {
                 <div className={classes.grow}></div>
                 
                 <div className={classes.userSection}>
+                    <WritePost/>
 
-                    <Button variant="contained" color="primary" >
-                        Novo Post
-                    </Button>
+                    <Box ml={2}>
+                        <Notifications/>
+                    </Box>
                     
-                    <SvgIcon className={classes.bell}>
-                       <Bell></Bell> 
-                    </SvgIcon>
-                    <Avatar alt="Remy Sharp" src="" />
-
+                    <Box ml={2}>
+                        <Account/>
+                    </Box>
                 </div>
             </Toolbar>
         </AppBar>

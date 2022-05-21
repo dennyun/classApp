@@ -3,32 +3,53 @@ import axios from '../utils/axios';
 class AuthService {
     login = (email, password) => {
         return new Promise((resolve, reject) => {
-            axios.post('/api/home/login', {email, password})
-            .then(response => {
-                if(response.data.user){
-                    this.setUser(response.data.user)
-                    resolve(response.data.user)
-                } else {
-                    reject(response.data.error)
-                }
+          axios
+            .post('/api/home/login', { email, password })
+            .then((response) => {
+              if (response.data.user) {
+                this.setToken('JWT');
+                resolve(response.data.user);
+              } else {
+                reject(response.data.error);
+              }
             })
-            .catch(error => {
-                reject(error)
-            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      };
+    
+    loginToken = () => {
+    return new Promise((resolve, reject) => {
+        axios
+        .post('/api/home/me') // envio o token pelo header
+        .then((response) => {
+            if (response.data.user) {
+            resolve(response.data.user);
+            } else {
+            reject(response.data.error);
+            }
         })
+        .catch((error) => {
+            reject(error);
+        });
+    });
+    };
+
+    logout = () => {
+        this.removeToken();
     }
 
-    setUser = (user) => {
-        localStorage.setItem('user',JSON.stringify(user));
+    setToken = (token) => {
+        localStorage.setItem('acessToken', token);
     }
 
-    getUser = () => {
-        const user = localStorage.getItem('user');
-        return user;
-    }
+    getToken = () => localStorage.getItem('acessToken')
+
+    removeToken = () => localStorage.removeItem('acessToken')
 
     isAuthenticated = () => {
-        return !!this.getUser
+        return !!this.getToken
     }
 }
 
