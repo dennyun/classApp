@@ -5,7 +5,6 @@ import { FormHelperText} from "@mui/material";
 import { Grid, Avatar, Link} from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { useState } from "react";
-import '../style.css'
 
 import { useNavigate } from "react-router-dom";
 import {login} from "../../../actions/accountAction";

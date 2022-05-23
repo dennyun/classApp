@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IconButton, SvgIcon, Popover, Box, List, ListItem, ListItemAvatar, ListItemText, Avatar, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { getNotifications } from "../../../../actions/notificationsActions";
-import '../../style.css'
+import { getNotifications } from "../../../actions/notificationsActions";
 
 import {
     Bell as BellIcon,

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Avatar, MenuItem } from "@mui/material";
 import { Menu } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { logout } from "../../../../actions/accountAction";
+import { logout } from "../../../actions/accountAction";
 import { useNavigate } from "react-router-dom";
 
 function Account() {

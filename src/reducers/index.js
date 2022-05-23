@@ -1,10 +1,11 @@
-import { combineReducers } from "redux";
-import accountReducer from "./accountReducer";
-import notificationsReducer from "./notificationsReducer";
+import { combineReducers } from 'redux';
 
-const rootReducers = combineReducers({
-    account: accountReducer,
-    notifications: notificationsReducer
-})
+import accountReducer from './accountReducer';
+import notificationsReducer from './notificationsReducer';
 
-export default rootReducers;
+const rootReducer = combineReducers({
+  account: accountReducer,
+  notifications: notificationsReducer,
+});
+
+export default rootReducer;
