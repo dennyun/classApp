@@ -19,7 +19,7 @@ function App() {
         <Auth>
           <Routes>
             <Route path="/post" element={<NewPost />} />
-            <GuestRoute path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="//*" element={<Home />} />
           </Routes>
         </Auth>
