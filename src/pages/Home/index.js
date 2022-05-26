@@ -6,6 +6,7 @@ import './style-home.css'
 
 import Header from './Header';
 import Feed from '../Feed';
+import NewPost from '../Post/New';
 
 const useStyles = makeStyles ({
   root: {
@@ -32,6 +33,7 @@ function Home() {
         <Routes>
           <Route path="/" element={<Feed />} />
           <Route path="/feed" element={<Feed />} />
+          <Route path="/post/new" element={<NewPost />} />
           <Route path="*" element={<h1>404!</h1>} />
         </Routes>
       </main>

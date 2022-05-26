@@ -7,7 +7,6 @@ import Auth from './components/Auth';
 import Login from './pages/Login'
 import Home from './pages/Home';
 import store from './store';
-import NewPost from './pages/Post/New';
 
 import './mock';
 
@@ -18,7 +17,6 @@ function App() {
       <BrowserRouter>
         <Auth>
           <Routes>
-            <Route path="/post" element={<NewPost />} />
             <Route path="/login" element={<Login />} />
             <Route path="//*" element={<Home />} />
           </Routes>
@@ -29,3 +27,4 @@ function App() {
 }
 
 export default App;
+

@@ -6,14 +6,15 @@ export const LOGOUT = '@ACCOUNT/LOGOUT';
 
 const login = (email, password) => {
     return async (dispatch) => {
-        const user = await authService.login(email, password)
+        const user = await authService.login(email, password);
+        
         dispatch({
             type: LOGIN_SUCCESS,
             payload: {
-                user
-            }
-        })
-    }
+                user,
+            },
+        });
+    };
 }
 
 const setUserData = () => {
@@ -22,11 +23,11 @@ const setUserData = () => {
         dispatch({
             type: SILENT_LOGIN,
             payload: {
-                user
-            }
-        })
-    }
-}
+                user,
+            },
+        });
+    };
+};
 
 const logout = () => {
     return async (dispatch) => {
@@ -34,8 +35,8 @@ const logout = () => {
         dispatch({
             type: LOGOUT,
 
-        })
-    }
-}
+        });
+    };
+};
 
 export { login, setUserData, logout };

@@ -65,7 +65,6 @@ function Account() {
                     <MenuItem> Registrar </MenuItem>
                 </Menu>
                 )}
-
         </>
     )
 }

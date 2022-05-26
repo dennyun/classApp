@@ -10,8 +10,8 @@ const getNotifications = () => {
             payload: {
                 notifications: notifications.data.notifications
             }
-        })
-    }
-}
+        });
+    };
+};
 
 export {getNotifications};

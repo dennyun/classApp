@@ -12,7 +12,7 @@ function WritePost() {
       if (isAuthenticated) {
         navigate('/post/new');
       } else {
-        navigate('/sign-in');
+        navigate('/login');
       }
     };
   
